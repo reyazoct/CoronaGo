@@ -6,4 +6,5 @@
     <string name="deaths">Deaths</string>
     <string name="total">Total cases</string>
     <string name="search_state">Search State</string>
+    <string name="last_updated">Updated %s ago</string>
 </resources>

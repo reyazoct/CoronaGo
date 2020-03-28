@@ -11,7 +11,12 @@ import com.reyaz.coronago.R
 import com.reyaz.coronago.base.BaseActivity
 import com.reyaz.coronago.databinding.ActivityStatewiseBinding
 import com.reyaz.coronago.statewise.adapters.StateWiseItemAdapter
+import com.reyaz.coronago.statewise.models.KeyValue
 import com.reyaz.coronago.statewise.viewmodels.StateWiseVM
+import org.joda.time.DateTime
+import org.joda.time.Period
+import org.joda.time.format.DateTimeFormat
+import org.joda.time.format.PeriodFormat
 
 class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
@@ -64,8 +69,28 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener {
                 statewiseList.firstOrNull { statewise ->
                     statewise.state == TOTAL
                 }?.let { binding.topBar.data = it }
+
+                data.keyValues?.firstOrNull()?.let {
+                    showLastUpdatedTime(it)
+                }
             }
         })
+    }
+
+    private fun showLastUpdatedTime(it: KeyValue) {
+        val dateTime = DateTime.parse(
+            it.lastUpdatedTime,
+            DateTimeFormat.forPattern(DATE_TIME_FORMAT)
+        )
+        val period = Period(dateTime, DateTime())
+
+        PeriodFormat.getDefault().print(period).split(",").firstOrNull()
+            ?.let { lastUpdated ->
+                binding.topBar.lastUpdatedTv.text =
+                    getString(R.string.last_updated, lastUpdated)
+            } ?: run {
+            binding.topBar.lastUpdatedTv.visibility = View.GONE
+        }
     }
 
     private fun initUi() {
@@ -74,7 +99,7 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener {
     }
 
     companion object {
-
         private const val TOTAL = "Total"
+        private const val DATE_TIME_FORMAT = "dd/MM/yyyy HH:mm:ss"
     }
 }
