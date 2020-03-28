@@ -46,22 +46,30 @@
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <RelativeLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-            <include
-                android:id="@+id/loading_layout"
-                layout="@layout/loading_layout" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/state_rv"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="2" />
-        </RelativeLayout>
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true">
+
+                <include
+                    android:id="@+id/loading_layout"
+                    layout="@layout/loading_layout" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/state_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2" />
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
