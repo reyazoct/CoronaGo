@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_dp_4">4dp</dimen>
+    <dimen name="layout_dp_8">8dp</dimen>
+    <dimen name="layout_dp_16">16dp</dimen>
+
+    <!-- Font Sizes -->
+    <dimen name="font_mini">10sp</dimen>
+    <dimen name="font_extra_small">12sp</dimen>
+    <dimen name="font_small">14sp</dimen>
+    <dimen name="font_medium">16sp</dimen>
+    <dimen name="font_medium_large">18sp</dimen>
+    <dimen name="font_large">20sp</dimen>
+    <dimen name="font_extra_large">26sp</dimen>
+</resources>
