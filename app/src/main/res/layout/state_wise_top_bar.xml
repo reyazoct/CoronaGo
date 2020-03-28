@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.reyaz.coronago.statewise.models.Statewise" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/layout_dp_16">
+
+        <TextView
+            android:id="@+id/state_name_tv"
+            style="@style/TitleFontStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.state}"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/layout_dp_8"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/state_name_tv" />
+
+        <include
+            android:id="@+id/confirmed_layout"
+            layout="@layout/key_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_dp_8"
+            app:layout_constraintEnd_toStartOf="@+id/active_layout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            bind:color="@{@color/red}"
+            bind:title="@{@string/confirmed}"
+            bind:value="@{data.confirmed}" />
+
+        <include
+            android:id="@+id/active_layout"
+            layout="@layout/key_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_dp_8"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@+id/recovered_layout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/confirmed_layout"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            bind:color="@{@color/blue}"
+            bind:title="@{@string/active}"
+            bind:value="@{data.active}" />
+
+        <include
+            android:id="@+id/recovered_layout"
+            layout="@layout/key_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_dp_8"
+            app:layout_constraintEnd_toStartOf="@+id/deaths_layout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/active_layout"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            bind:color="@{@color/green}"
+            bind:title="@{@string/recovered}"
+            bind:value="@{data.recovered}" />
+
+        <include
+            android:id="@+id/deaths_layout"
+            layout="@layout/key_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_dp_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/recovered_layout"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            bind:color="@{@color/grey}"
+            bind:title="@{@string/deaths}"
+            bind:value="@{data.deaths}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

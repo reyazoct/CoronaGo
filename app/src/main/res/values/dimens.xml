@@ -3,6 +3,7 @@
     <dimen name="layout_dp_4">4dp</dimen>
     <dimen name="layout_dp_8">8dp</dimen>
     <dimen name="layout_dp_16">16dp</dimen>
+    <dimen name="layout_dp_32">32dp</dimen>
 
     <!-- Font Sizes -->
     <dimen name="font_mini">10sp</dimen>
