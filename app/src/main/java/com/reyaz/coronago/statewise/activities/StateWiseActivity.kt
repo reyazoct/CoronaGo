@@ -1,24 +1,31 @@
 package com.reyaz.coronago.statewise.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.reyaz.coronago.R
 import com.reyaz.coronago.base.BaseActivity
 import com.reyaz.coronago.databinding.ActivityStatewiseBinding
+import com.reyaz.coronago.statespecific.activity.StateSpecificActivity
 import com.reyaz.coronago.statewise.adapters.StateWiseItemAdapter
+import com.reyaz.coronago.statewise.adapters.StateWiseItemAdapter.Companion.SHARED_ELEMENTS
 import com.reyaz.coronago.statewise.models.KeyValue
+import com.reyaz.coronago.statewise.models.Statewise
 import com.reyaz.coronago.statewise.viewmodels.StateWiseVM
 import org.joda.time.DateTime
 import org.joda.time.Period
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.PeriodFormat
 
-class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener {
+class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener,
+    StateWiseItemAdapter.OnItemClickListener {
 
     private val viewModel by lazy { ViewModelProviders.of(this).get(StateWiseVM::class.java) }
     private lateinit var binding: ActivityStatewiseBinding
@@ -63,7 +70,7 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener {
                     removeAll { it.state == TOTAL }
                 }
 
-                adapter = StateWiseItemAdapter(onlyStateList)
+                adapter = StateWiseItemAdapter(onlyStateList, this)
                 binding.stateRv.adapter = adapter
 
                 statewiseList.firstOrNull { statewise ->
@@ -98,8 +105,21 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener {
         viewModel.fetchCoronaData()
     }
 
+    override fun onClick(stateWise: Statewise, bundle: Bundle?) {
+        val intent = Intent(this, StateSpecificActivity::class.java)
+        intent.putExtra(STATEWISE, stateWise)
+        (bundle?.getSerializable(SHARED_ELEMENTS) as? Array<Pair<View, String>>)?.let {
+            val options =
+                ActivityOptionsCompat.makeSceneTransitionAnimation(this, *it)
+            startActivity(intent, options.toBundle())
+            return
+        }
+        startActivity(intent)
+    }
+
     companion object {
         private const val TOTAL = "Total"
         private const val DATE_TIME_FORMAT = "dd/MM/yyyy HH:mm:ss"
+        const val STATEWISE = "STATEWISE"
     }
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="state_name">STATE_NAME</string>
+    <string name="state_wise_view_1">STATE_WISE_VIEW_1</string>
+    <string name="state_wise_view_2">STATE_WISE_VIEW_2</string>
+    <string name="state_wise_view_3">STATE_WISE_VIEW_3</string>
+    <string name="state_wise_view_4">STATE_WISE_VIEW_4</string>
+</resources>

@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{data.state}"
                 android:textAllCaps="true"
+                android:transitionName="@string/state_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,6 +56,7 @@
                 app:layout_constraintTop_toBottomOf="@id/divider"
                 bind:color="@{@color/red}"
                 bind:title="@{@string/confirmed}"
+                bind:transitionName="@{@string/state_wise_view_1}"
                 bind:value="@{data.confirmed}" />
 
             <include
@@ -68,6 +70,7 @@
                 app:layout_constraintTop_toBottomOf="@id/divider"
                 bind:color="@{@color/blue}"
                 bind:title="@{@string/active}"
+                bind:transitionName="@{@string/state_wise_view_2}"
                 bind:value="@{data.active}" />
 
             <include
@@ -80,6 +83,7 @@
                 app:layout_constraintTop_toBottomOf="@id/confirmed_layout"
                 bind:color="@{@color/green}"
                 bind:title="@{@string/recovered}"
+                bind:transitionName="@{@string/state_wise_view_3}"
                 bind:value="@{data.recovered}" />
 
             <include
@@ -92,6 +96,7 @@
                 app:layout_constraintTop_toBottomOf="@id/confirmed_layout"
                 bind:color="@{@color/grey}"
                 bind:title="@{@string/deaths}"
+                bind:transitionName="@{@string/state_wise_view_4}"
                 bind:value="@{data.deaths}" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
