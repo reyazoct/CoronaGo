@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="state_name">STATE_NAME</string>
-    <string name="state_wise_view_1">STATE_WISE_VIEW_1</string>
-    <string name="state_wise_view_2">STATE_WISE_VIEW_2</string>
-    <string name="state_wise_view_3">STATE_WISE_VIEW_3</string>
-    <string name="state_wise_view_4">STATE_WISE_VIEW_4</string>
+    <string name="state_wise_view_11">STATE_WISE_VIEW_11</string>
+    <string name="state_wise_view_21">STATE_WISE_VIEW_21</string>
+    <string name="state_wise_view_31">STATE_WISE_VIEW_31</string>
+    <string name="state_wise_view_41">STATE_WISE_VIEW_41</string>
+    <string name="state_wise_view_12">STATE_WISE_VIEW_12</string>
+    <string name="state_wise_view_22">STATE_WISE_VIEW_22</string>
+    <string name="state_wise_view_32">STATE_WISE_VIEW_32</string>
+    <string name="state_wise_view_42">STATE_WISE_VIEW_42</string>
 </resources>

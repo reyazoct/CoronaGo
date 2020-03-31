@@ -51,7 +51,8 @@
             app:layout_constraintTop_toBottomOf="@+id/divider"
             bind:color="@{@color/red}"
             bind:title="@{@string/confirmed}"
-            bind:transitionName="@{@string/state_wise_view_1}"
+            bind:transitionNameOne="@{@string/state_wise_view_11}"
+            bind:transitionNameTwo="@{@string/state_wise_view_12}"
             bind:value="@{data.confirmed}" />
 
         <include
@@ -67,7 +68,8 @@
             app:layout_constraintTop_toBottomOf="@+id/divider"
             bind:color="@{@color/blue}"
             bind:title="@{@string/active}"
-            bind:transitionName="@{@string/state_wise_view_2}"
+            bind:transitionNameOne="@{@string/state_wise_view_21}"
+            bind:transitionNameTwo="@{@string/state_wise_view_22}"
             bind:value="@{data.active}" />
 
         <include
@@ -82,7 +84,8 @@
             app:layout_constraintTop_toBottomOf="@+id/divider"
             bind:color="@{@color/green}"
             bind:title="@{@string/recovered}"
-            bind:transitionName="@{@string/state_wise_view_3}"
+            bind:transitionNameOne="@{@string/state_wise_view_31}"
+            bind:transitionNameTwo="@{@string/state_wise_view_32}"
             bind:value="@{data.recovered}" />
 
         <include
@@ -97,7 +100,8 @@
             app:layout_constraintTop_toBottomOf="@+id/divider"
             bind:color="@{@color/grey}"
             bind:title="@{@string/deaths}"
-            bind:transitionName="@{@string/state_wise_view_4}"
+            bind:transitionNameOne="@{@string/state_wise_view_41}"
+            bind:transitionNameTwo="@{@string/state_wise_view_42}"
             bind:value="@{data.deaths}" />
 
         <TextView

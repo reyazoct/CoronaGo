@@ -39,10 +39,14 @@ class StateWiseItemAdapter(
                 SHARED_ELEMENTS,
                 arrayOf(
                     Pair.create(binding.stateNameTv, STATE_NAME),
-                    Pair.create(binding.confirmedLayout.root, STATE_WISE_VIEW_1),
-                    Pair.create(binding.activeLayout.root, STATE_WISE_VIEW_2),
-                    Pair.create(binding.recoveredLayout.root, STATE_WISE_VIEW_3),
-                    Pair.create(binding.deathsLayout.root, STATE_WISE_VIEW_4)
+                    Pair.create(binding.confirmedLayout.labelTv, STATE_WISE_VIEW_11),
+                    Pair.create(binding.activeLayout.labelTv, STATE_WISE_VIEW_21),
+                    Pair.create(binding.recoveredLayout.labelTv, STATE_WISE_VIEW_31),
+                    Pair.create(binding.deathsLayout.labelTv, STATE_WISE_VIEW_41),
+                    Pair.create(binding.confirmedLayout.valueTv, STATE_WISE_VIEW_12),
+                    Pair.create(binding.activeLayout.valueTv, STATE_WISE_VIEW_22),
+                    Pair.create(binding.recoveredLayout.valueTv, STATE_WISE_VIEW_32),
+                    Pair.create(binding.deathsLayout.valueTv, STATE_WISE_VIEW_42)
                 )
             )
         }
@@ -84,9 +88,13 @@ class StateWiseItemAdapter(
     companion object {
         const val SHARED_ELEMENTS = "SHARED_ELEMENTS"
         const val STATE_NAME = "STATE_NAME"
-        const val STATE_WISE_VIEW_1 = "STATE_WISE_VIEW_1"
-        const val STATE_WISE_VIEW_2 = "STATE_WISE_VIEW_2"
-        const val STATE_WISE_VIEW_3 = "STATE_WISE_VIEW_3"
-        const val STATE_WISE_VIEW_4 = "STATE_WISE_VIEW_4"
+        const val STATE_WISE_VIEW_11 = "STATE_WISE_VIEW_11"
+        const val STATE_WISE_VIEW_21 = "STATE_WISE_VIEW_21"
+        const val STATE_WISE_VIEW_31 = "STATE_WISE_VIEW_31"
+        const val STATE_WISE_VIEW_41 = "STATE_WISE_VIEW_41"
+        const val STATE_WISE_VIEW_12 = "STATE_WISE_VIEW_12"
+        const val STATE_WISE_VIEW_22 = "STATE_WISE_VIEW_22"
+        const val STATE_WISE_VIEW_32 = "STATE_WISE_VIEW_32"
+        const val STATE_WISE_VIEW_42 = "STATE_WISE_VIEW_42"
     }
 }

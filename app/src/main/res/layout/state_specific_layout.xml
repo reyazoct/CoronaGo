@@ -15,6 +15,12 @@
             android:layout_marginTop="@dimen/layout_dp_16"
             android:text="@string/confirmed_cases" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/layout_dp_8"
+            android:background="?android:attr/listDivider" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"

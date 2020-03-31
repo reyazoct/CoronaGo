@@ -17,7 +17,11 @@
             type="Integer" />
 
         <variable
-            name="transitionName"
+            name="transitionNameOne"
+            type="String" />
+
+        <variable
+            name="transitionNameTwo"
             type="String" />
     </data>
 
@@ -25,8 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:transitionName="@{transitionName}">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/label_tv"
@@ -36,6 +39,7 @@
             android:alpha="0.5"
             android:text="@{title}"
             android:textColor="@{color}"
+            android:transitionName="@{transitionNameOne}"
             tools:text="Confirmed" />
 
         <TextView
@@ -45,6 +49,7 @@
             android:layout_height="wrap_content"
             android:text="@{value}"
             android:textColor="@{color}"
+            android:transitionName="@{transitionNameTwo}"
             tools:text="200" />
     </LinearLayout>
 </layout>
