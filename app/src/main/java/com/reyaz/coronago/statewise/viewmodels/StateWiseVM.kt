@@ -15,6 +15,10 @@ class StateWiseVM : BaseVM() {
     val coronaData: LiveData<CoronaData>
         get() = _coronaData
 
+    private val _stateSpecificData = MutableLiveData<String>()
+    val stateSpecificData: LiveData<String>
+        get() = _stateSpecificData
+
     fun fetchCoronaData() {
         coroutineScope.launch {
             val response = repository.fetchCoronaData()
@@ -22,6 +26,18 @@ class StateWiseVM : BaseVM() {
             if (response.isSuccessful) {
                 response.body()?.let {
                     _coronaData.value = it
+                }
+            }
+        }
+    }
+
+    fun fetchStateSpecificData() {
+        coroutineScope.launch {
+            val response = repository.fetchStateSpecificData()
+            Log.i("State Specific Data", response.toString())
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    _stateSpecificData.value = it.string()
                 }
             }
         }

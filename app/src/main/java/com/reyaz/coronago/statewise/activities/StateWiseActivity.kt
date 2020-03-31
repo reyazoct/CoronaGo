@@ -93,6 +93,7 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener,
 
         PeriodFormat.getDefault().print(period).split(",").firstOrNull()
             ?.let { lastUpdated ->
+                binding.topBar.lastUpdatedTv.visibility = View.VISIBLE
                 binding.topBar.lastUpdatedTv.text =
                     getString(R.string.last_updated, lastUpdated)
             } ?: run {
