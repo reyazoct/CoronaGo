@@ -1,7 +1,6 @@
 package com.reyaz.coronago.statespecific.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -9,13 +8,14 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.reyaz.coronago.R
+import com.reyaz.coronago.base.BaseActivity
 import com.reyaz.coronago.databinding.ActivityStateSpecificBinding
 import com.reyaz.coronago.statewise.activities.StateWiseActivity.Companion.STATEWISE
 import com.reyaz.coronago.statewise.adapters.StateSpecificAdapter
 import com.reyaz.coronago.statewise.models.Statewise
 import com.reyaz.coronago.statewise.viewmodels.StateWiseVM
 
-class StateSpecificActivity : AppCompatActivity() {
+class StateSpecificActivity : BaseActivity() {
     private lateinit var binding: ActivityStateSpecificBinding
     private val viewModel by lazy { ViewModelProviders.of(this).get(StateWiseVM::class.java) }
     private var statewiseData: Statewise? = null
@@ -23,6 +23,7 @@ class StateSpecificActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_state_specific)
+        initError(viewModel)
         initUi()
         initObservers()
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,33 +14,37 @@
             type="String" />
 
         <variable
+            name="delta"
+            type="String" />
+
+        <variable
             name="color"
             type="Integer" />
 
         <variable
-            name="transitionNameOne"
-            type="String" />
-
-        <variable
-            name="transitionNameTwo"
+            name="transitionName"
             type="String" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:transitionName="@{transitionName}">
 
         <TextView
             android:id="@+id/label_tv"
             style="@style/TitleFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:alpha="0.5"
             android:text="@{title}"
             android:textColor="@{color}"
-            android:transitionName="@{transitionNameOne}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Confirmed" />
 
         <TextView
@@ -47,9 +52,27 @@
             style="@style/NumberDescriptionStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:includeFontPadding="false"
             android:text="@{value}"
             android:textColor="@{color}"
-            android:transitionName="@{transitionNameTwo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_tv"
             tools:text="200" />
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/delta_tv"
+            style="@style/NumberDescriptionStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:includeFontPadding="false"
+            android:text="@{delta}"
+            android:textColor="@{color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/value_tv"
+            app:layout_constraintStart_toStartOf="@+id/value_tv"
+            app:layout_constraintTop_toBottomOf="@+id/value_tv"
+            tools:text="+200" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

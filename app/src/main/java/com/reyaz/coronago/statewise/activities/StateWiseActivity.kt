@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.databinding.DataBindingUtil
@@ -16,7 +15,6 @@ import com.reyaz.coronago.databinding.ActivityStatewiseBinding
 import com.reyaz.coronago.statespecific.activity.StateSpecificActivity
 import com.reyaz.coronago.statewise.adapters.StateWiseItemAdapter
 import com.reyaz.coronago.statewise.adapters.StateWiseItemAdapter.Companion.SHARED_ELEMENTS
-import com.reyaz.coronago.statewise.models.KeyValue
 import com.reyaz.coronago.statewise.models.Statewise
 import com.reyaz.coronago.statewise.viewmodels.StateWiseVM
 import org.joda.time.DateTime
@@ -34,17 +32,10 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_statewise)
-        initError()
+        initError(viewModel)
         initUi()
         initListeners()
         initObservers()
-    }
-
-    private fun initError() {
-        viewModel.errorMessage.observe(this, Observer {
-            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
-            finish()
-        })
     }
 
     private fun initListeners() {
@@ -75,18 +66,17 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener,
 
                 statewiseList.firstOrNull { statewise ->
                     statewise.state == TOTAL
-                }?.let { binding.topBar.data = it }
-
-                data.keyValues?.firstOrNull()?.let {
-                    showLastUpdatedTime(it)
+                }?.let { total ->
+                    binding.topBar.data = total
+                    total.lastUpdatedTime?.let { showLastUpdatedTime(it) }
                 }
             }
         })
     }
 
-    private fun showLastUpdatedTime(it: KeyValue) {
+    private fun showLastUpdatedTime(updatedTime: String) {
         val dateTime = DateTime.parse(
-            it.lastUpdatedTime,
+            updatedTime,
             DateTimeFormat.forPattern(DATE_TIME_FORMAT)
         )
         val period = Period(dateTime, DateTime())

@@ -50,9 +50,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             bind:color="@{@color/red}"
+            bind:delta="@{data.deltaConfirmed}"
             bind:title="@{@string/confirmed}"
-            bind:transitionNameOne="@{@string/state_wise_view_11}"
-            bind:transitionNameTwo="@{@string/state_wise_view_12}"
+            bind:transitionName="@{@string/state_wise_view_1}"
             bind:value="@{data.confirmed}" />
 
         <include
@@ -68,8 +68,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider"
             bind:color="@{@color/blue}"
             bind:title="@{@string/active}"
-            bind:transitionNameOne="@{@string/state_wise_view_21}"
-            bind:transitionNameTwo="@{@string/state_wise_view_22}"
+            bind:transitionName="@{@string/state_wise_view_2}"
             bind:value="@{data.active}" />
 
         <include
@@ -83,9 +82,9 @@
             app:layout_constraintStart_toEndOf="@+id/active_layout"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             bind:color="@{@color/green}"
+            bind:delta="@{data.deltaRecovered}"
             bind:title="@{@string/recovered}"
-            bind:transitionNameOne="@{@string/state_wise_view_31}"
-            bind:transitionNameTwo="@{@string/state_wise_view_32}"
+            bind:transitionName="@{@string/state_wise_view_3}"
             bind:value="@{data.recovered}" />
 
         <include
@@ -99,9 +98,9 @@
             app:layout_constraintStart_toEndOf="@+id/recovered_layout"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             bind:color="@{@color/grey}"
+            bind:delta="@{data.deltaDeaths}"
             bind:title="@{@string/deaths}"
-            bind:transitionNameOne="@{@string/state_wise_view_41}"
-            bind:transitionNameTwo="@{@string/state_wise_view_42}"
+            bind:transitionName="@{@string/state_wise_view_4}"
             bind:value="@{data.deaths}" />
 
         <TextView

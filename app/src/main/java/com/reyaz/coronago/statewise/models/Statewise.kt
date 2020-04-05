@@ -9,8 +9,10 @@ data class Statewise(
     @SerializedName("active") val active: String?,
     @SerializedName("confirmed") val confirmed: String?,
     @SerializedName("deaths") val deaths: String?,
-    @SerializedName("delta") val delta: Delta?,
-    @SerializedName("lastupdatedtime") val lastupdatedtime: String?,
+    @SerializedName("deltaconfirmed") val deltaConfirmed: String?,
+    @SerializedName("deltadeaths") val deltaDeaths: String?,
+    @SerializedName("deltarecovered") val deltaRecovered: String?,
+    @SerializedName("lastupdatedtime") val lastUpdatedTime: String?,
     @SerializedName("recovered") val recovered: String?,
     @SerializedName("state") val state: String?
 ) : Parcelable
