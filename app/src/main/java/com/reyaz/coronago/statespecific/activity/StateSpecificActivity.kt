@@ -50,8 +50,8 @@ class StateSpecificActivity : BaseActivity() {
     }
 
     private fun initUi() {
-        window.sharedElementEnterTransition.duration = 1000
-        window.sharedElementReturnTransition.duration = 1000
+        window.sharedElementEnterTransition.duration = TRANSITION_DURATION
+        window.sharedElementReturnTransition.duration = TRANSITION_DURATION
         viewModel.fetchStateSpecificData()
         intent?.getParcelableExtra<Statewise>(STATEWISE)?.let {
             binding.topBar.data = it
@@ -62,5 +62,6 @@ class StateSpecificActivity : BaseActivity() {
     companion object {
         private const val DISTRICT_DATA = "districtData"
         private const val CONFIRMED = "confirmed"
+        private const val TRANSITION_DURATION = 500L
     }
 }

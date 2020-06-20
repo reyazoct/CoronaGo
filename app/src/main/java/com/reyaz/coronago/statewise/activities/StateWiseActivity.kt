@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.reyaz.coronago.R
 import com.reyaz.coronago.base.BaseActivity
+import com.reyaz.coronago.customview.CoronaGoSearchView
 import com.reyaz.coronago.databinding.ActivityStatewiseBinding
 import com.reyaz.coronago.statespecific.activity.StateSpecificActivity
 import com.reyaz.coronago.statewise.adapters.StateWiseItemAdapter
@@ -22,8 +23,8 @@ import org.joda.time.Period
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.PeriodFormat
 
-class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener,
-    StateWiseItemAdapter.OnItemClickListener {
+class StateWiseActivity : BaseActivity(), CoronaGoSearchView.QueryListener,
+    StateWiseItemAdapter.OnItemClickListener, View.OnClickListener {
 
     private val viewModel by lazy { ViewModelProviders.of(this).get(StateWiseVM::class.java) }
     private lateinit var binding: ActivityStatewiseBinding
@@ -39,16 +40,12 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener,
     }
 
     private fun initListeners() {
-        binding.searchView.setOnQueryTextListener(this)
+        binding.searchView.setQueryListener(this)
+        binding.fab.setOnClickListener(this)
     }
 
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        return false
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        adapter?.filter?.filter(newText)
-        return true
+    override fun onQueryChange(query: String) {
+        adapter?.filter?.filter(query)
     }
 
     private fun initObservers() {
@@ -106,6 +103,16 @@ class StateWiseActivity : BaseActivity(), SearchView.OnQueryTextListener,
             return
         }
         startActivity(intent)
+    }
+
+    private fun onFabClick() {
+        binding.searchView.openSearch()
+    }
+
+    override fun onClick(view: View?) {
+        when(view?.id) {
+            R.id.fab -> onFabClick()
+        }
     }
 
     companion object {

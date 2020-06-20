@@ -8,4 +8,8 @@
     <color name="blue">#307FF7</color>
     <color name="green">#54A452</color>
     <color name="grey">#6F767D</color>
+
+    <color name="backgroundOne">#F5F5F5</color>
+
+    <color name="borderOne">#E0E0E0</color>
 </resources>

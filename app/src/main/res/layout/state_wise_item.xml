@@ -10,18 +10,21 @@
             type="com.reyaz.coronago.statewise.models.Statewise" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/layout_dp_4"
-        app:cardCornerRadius="@dimen/layout_dp_16"
-        app:cardElevation="@dimen/layout_dp_16">
+        app:strokeColor="@color/borderOne"
+        app:strokeWidth="@dimen/layout_dp_1"
+        app:cardBackgroundColor="@color/backgroundOne"
+        app:cardCornerRadius="@dimen/layout_dp_20"
+        app:cardElevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="@dimen/layout_dp_16">
+            android:layout_margin="@dimen/layout_dp_12">
 
             <TextView
                 android:id="@+id/state_name_tv"
@@ -99,5 +102,5 @@
                 bind:transitionName="@{@string/state_wise_view_4}"
                 bind:value="@{data.deaths}" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

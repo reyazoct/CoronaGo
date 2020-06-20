@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="layout_dp_1">1dp</dimen>
     <dimen name="layout_dp_4">4dp</dimen>
     <dimen name="layout_dp_8">8dp</dimen>
+    <dimen name="layout_dp_12">12dp</dimen>
     <dimen name="layout_dp_16">16dp</dimen>
+    <dimen name="layout_dp_20">20dp</dimen>
     <dimen name="layout_dp_32">32dp</dimen>
 
     <!-- Font Sizes -->
@@ -12,5 +15,5 @@
     <dimen name="font_medium">16sp</dimen>
     <dimen name="font_medium_large">18sp</dimen>
     <dimen name="font_large">20sp</dimen>
-    <dimen name="font_extra_large">26sp</dimen>
+    <dimen name="font_extra_large">24sp</dimen>
 </resources>
